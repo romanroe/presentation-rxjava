@@ -1,9 +1,5 @@
 package romanroe;
 
-import io.reactivex.BackpressureStrategy;
-import io.reactivex.Flowable;
-import io.reactivex.schedulers.Schedulers;
-
 public final class Main1 {
 
     public static void main(String[] args) throws InterruptedException {
@@ -12,22 +8,7 @@ public final class Main1 {
 //        Flowable<Integer> just = Flowable.just(1, 2, 3);
 //        Subject<String> stringSubject = BehaviorSubject.create();
 //        stringSubject.onNext("string");
-
-        Flowable.create(subscriber -> {
-            int count = 0;
-            while (true) {
-                subscriber.onNext(count++);
-            }
-
-        }, BackpressureStrategy.ERROR)
-                .observeOn(Schedulers.newThread(), false, 1)
-                .subscribe(val -> {
-                            Thread.sleep(1000);
-                            System.out.println(val);
-                        }
-                );
-
-
+//
 // map, filter,
 //        Observable<String> obs2$ = Observable.just("a", "b", "c");
 //        obs1$.zipWith(obs2$, (a, b) -> a + "-" + b)
@@ -82,6 +63,34 @@ public final class Main1 {
 
 
 //        Thread.sleep(10000);
+
+//        Flowable.create(subscriber -> {
+//            int count = 0;
+//            while (true) {
+//                subscriber.onNext(count++);
+//            }
+//        }, BackpressureStrategy.DROP)
+//                .observeOn(Schedulers.newThread(), false, 1)
+//                .subscribe(val -> {
+//                            Thread.sleep(1000);
+//                            System.out.println(val);
+//                        }
+//                );
+
+//        Flowable.create(subscriber -> {
+//            int count = 0;
+//            while (true) {
+//                subscriber.onNext(count++);
+//            }
+//        }, BackpressureStrategy.MISSING)
+//                .onBackpressureBuffer(10)
+//                .observeOn(Schedulers.newThread(), false, 1)
+//                .subscribe(val -> {
+//                            Thread.sleep(1000);
+//                            System.out.println(val);
+//                        }
+//                );
+
     }
 
 
