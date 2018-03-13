@@ -15,6 +15,7 @@ combineLatest
 withLatestFrom
 flatMap
 
+share
 Subject
 ReplaySubject
 

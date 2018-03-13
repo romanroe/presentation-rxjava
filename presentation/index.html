@@ -76,7 +76,7 @@
             <h1>ReactiveX mit RxJava</h1>
 
             <div class="vspace"></div>
-            <h4>Roman Roelofsen - W11K GmbH / theCodeCampus</h4>
+            <h4>Roman Roelofsen - W11K GmbH - theCodeCampus</h4>
             <small>
                 Twitter &amp; GitHub: <a href="https://twitter.com/romanroe">romanroe</a>
             </small>
@@ -294,26 +294,25 @@
                 </ul>
             </section>
             <section>
-                <ul>
-                    <li>Nützlich, wenn Datenquelle nicht verschachtelt werden kann
+                        Nützlich für z.B. "Henne-Ei-Problem"
                         <pre>Observable.create(e -> {
         ...
         ...
 });</pre>
-                    </li>
-                    <li class="fragment">z.B. Servlet -> Subject -> Observer
+                    <div class="fragment">z.B. Servlet -> Subject -> Observer
                         <pre>public class Servlet extends HttpServlet {
+
+    public static Subject STREAM;
 
     protected void doGet(HttpServletRequest req,
                          HttpServletResponse res) {
 
-        subject.onNext(Pair.of(req, res));
+        STREAM.onNext(Pair.of(req, res));
 
     }
 }</pre>
-                    </li>
+                    </div>
 
-                </ul>
             </section>
 
             <section>
@@ -559,7 +558,7 @@ obs$.observeOn(Schedulers.computation()).map(i -> heavyOnCpu(i));</pre>
         </section>
 
         <section>
-            <p>Roman Roelofsen - w11k GmbH</p>
+            <p>Roman Roelofsen - W11K GmbH - theCodeCampus</p>
 
             <p>@romanroe</p>
         </section>

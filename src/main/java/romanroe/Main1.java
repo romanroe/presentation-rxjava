@@ -4,7 +4,6 @@ public final class Main1 {
 
     public static void main(String[] args) throws InterruptedException {
 
-
         Thread.sleep(10000);
         //
         //
@@ -96,6 +95,25 @@ public final class Main1 {
 //                System.out.println("onComplete");
 //            }
 //        });
+
+//        Observable<Integer> interval = Observable.<Integer>create(e -> {
+//            new Thread(() -> {
+//                System.out.println("Neuer Thread");
+//                try {
+//                    e.onNext(1);
+//                    Thread.sleep(500);
+//                    e.onNext(2);
+//                    Thread.sleep(500);
+//                    e.onComplete();
+//                } catch (InterruptedException e1) {
+//                    throw new RuntimeException(e1);
+//                }
+//            }).start();
+//        });
+//
+//        interval.subscribe(i -> System.out.println("a:" + i));
+//        interval.subscribe(i -> System.out.println("b:" + i));
+//        interval.subscribe(i -> System.out.println("c:" + i));
 
 
 //        Flowable.create(subscriber -> {
