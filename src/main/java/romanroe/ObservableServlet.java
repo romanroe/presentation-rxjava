@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public final class DispatcherServlet extends HttpServlet {
+public final class ObservableServlet extends HttpServlet {
 
     public static final Subject<RequestResponse> REQUESTS = PublishSubject.create();
 

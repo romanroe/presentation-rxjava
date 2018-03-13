@@ -490,6 +490,15 @@ obs$.observeOn(Schedulers.computation()).map(i -> heavyOnCpu(i));</pre>
 
             <section>
                 <ul>
+                    <li>Java APIs neigen dazu, für ihre Zwecke neue <code>Interfaces</code>, etc. anzubieten</li>
+                    <li>Dabei sind viele Use Cases generisch abbildbar</li>
+                    <li><b>Das Problem:</b> Neue Interfaces sind inkompatibel zueinander</li>
+                    <li class="fragment">Beispiel: Servlets</li>
+                </ul>
+            </section>
+
+            <section>
+                <ul>
                     <li>Mit <code>Observable</code>/<code>Observer</code> lassen sich alle Kommunikationsszenarien
                         abbilden
                     </li>
@@ -511,11 +520,11 @@ obs$.observeOn(Schedulers.computation()).map(i -> heavyOnCpu(i));</pre>
             </section>
 
             <section>
-                <h2>Servlets</h2>
+                <h2>JDBC</h2>
             </section>
 
             <section>
-                <h2>JDBC</h2>
+                <h2>Servlets</h2>
             </section>
 
         </section>

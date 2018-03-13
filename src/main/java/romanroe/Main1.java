@@ -4,6 +4,42 @@ public final class Main1 {
 
     public static void main(String[] args) throws InterruptedException {
 
+
+        Thread.sleep(10000);
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+
+
 //        Observable<Integer> obs1$ = Observable.just(1, 2, 3);
 //        Flowable<Integer> just = Flowable.just(1, 2, 3);
 //        Subject<String> stringSubject = BehaviorSubject.create();
@@ -62,8 +98,6 @@ public final class Main1 {
 //        });
 
 
-//        Thread.sleep(10000);
-
 //        Flowable.create(subscriber -> {
 //            int count = 0;
 //            while (true) {
@@ -90,6 +124,7 @@ public final class Main1 {
 //                            System.out.println(val);
 //                        }
 //                );
+
 
     }
 
