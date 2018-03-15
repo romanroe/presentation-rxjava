@@ -8,13 +8,15 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static romanroe.Utils.cpu;
+
 public final class ThreadQueue {
 
     public static void main(String[] args) throws InterruptedException {
         AtomicInteger ai = new AtomicInteger(0);
 
         Subject<Runnable> queue = PublishSubject.create();
-        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
 
         queue
 //                .observeOn(Schedulers.single())
@@ -34,18 +36,10 @@ public final class ThreadQueue {
 //                    c.run();
                 });
 
-        for (int i = 0; i < 4; i++) {
-//            new Thread(() -> {
+        for (int i = 0; i < 10; i++) {
                 queue.onNext(() -> {
-                    try {
-                        System.out.println("action:" + Thread.currentThread().toString());
-                        System.out.println(ai.getAndIncrement());
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
+                        System.out.println("action:" + Thread.currentThread().toString() + ": " + cpu());
                 });
-//            }).start();
         }
 
 

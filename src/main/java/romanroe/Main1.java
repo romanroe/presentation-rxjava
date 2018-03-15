@@ -1,10 +1,26 @@
 package romanroe;
 
+import io.reactivex.Observable;
+
+import java.util.concurrent.TimeUnit;
+
 public final class Main1 {
 
     public static void main(String[] args) throws InterruptedException {
+//        Observable<Integer> zahlen1 = Observable.just(1, 2, 3);
+//        Observable<Integer> zahlen2 = Observable.just(4, 5);
+//        Observable<String> zipped = zahlen1.zipWith(zahlen2, (a, b) -> a + "-" + b);
 
-        Thread.sleep(10000);
+        Observable<String> interval1 = Observable.interval(1, TimeUnit.SECONDS)
+                .map(i -> "" + i);
+        Observable<Long> interval2 = Observable.interval(500, TimeUnit.MILLISECONDS);
+
+//        interval1.withLatestFrom(interval2, (a, b) -> a + "/" + b)
+//                .subscribe(zahl -> {
+//                    System.out.println("Wert:" + zahl);
+//                });
+
+
         //
         //
         //
@@ -96,25 +112,25 @@ public final class Main1 {
 //            }
 //        });
 
-//        Observable<Integer> interval = Observable.<Integer>create(e -> {
-//            new Thread(() -> {
-//                System.out.println("Neuer Thread");
-//                try {
-//                    e.onNext(1);
-//                    Thread.sleep(500);
-//                    e.onNext(2);
-//                    Thread.sleep(500);
-//                    e.onComplete();
-//                } catch (InterruptedException e1) {
-//                    throw new RuntimeException(e1);
-//                }
-//            }).start();
-//        });
-//
-//        interval.subscribe(i -> System.out.println("a:" + i));
-//        interval.subscribe(i -> System.out.println("b:" + i));
-//        interval.subscribe(i -> System.out.println("c:" + i));
+        Observable<Integer> interval = Observable.<Integer>create(e -> {
+            new Thread(() -> {
+                System.out.println("Neuer Thread");
+                try {
+                    e.onNext(1);
+                    Thread.sleep(500);
+                    e.onNext(2);
+                    Thread.sleep(500);
+                    e.onComplete();
+                } catch (InterruptedException e1) {
+                    throw new RuntimeException(e1);
+                }
+            }).start();
+        }).share();
 
+        interval.subscribe(i -> System.out.println("a:" + i));
+        interval.subscribe(i -> System.out.println("b:" + i));
+        interval.subscribe(i -> System.out.println("c:" + i));
+//
 
 //        Flowable.create(subscriber -> {
 //            int count = 0;
@@ -143,6 +159,8 @@ public final class Main1 {
 //                        }
 //                );
 
+
+        Thread.sleep(10000);
 
     }
 
